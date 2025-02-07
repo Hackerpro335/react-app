@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../api/axiosInstance";
 
+interface User {
+    id?: number;
+    name?: string;
+    email?: string;
+}
+
+interface Users {
+    users: User[]
+}
+
 const Users = () => {
-    const [users, setUsers] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [users, setUsers] = useState<User[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
         const FetchUsers = async () => {
